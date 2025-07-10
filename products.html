@@ -1,0 +1,821 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Product Page</title>
+    <link rel="icon" type="image/png" href="images/logos/tab-logo.jpeg">
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+/>
+</head>
+<body>
+      <nav>
+    <!-- Logo (Left) -->
+    <div class="logo">
+      <img src="images/logos/asset-1-480x480.avif" alt="Logo">
+    </div>
+
+    <!-- Center Navigation -->
+    <div class="nav-links">
+      <a href="index.htm">Home</a>
+      <a href="about_us.htm">About Us</a>
+      <a href="service.html">Services</a>
+      <a href="contact.htm">Contact</a>
+    </div>
+
+    <!-- Right Button -->
+    <div class="nav-button">
+      <button>Emergency</button>
+    </div>
+  </nav>
+
+
+  <style>
+    /* ===== All CSS Code (from earlier message) pasted here ===== */
+
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background-color: #E8F9FF;
+    }
+.product-page-wrapper {
+  display: flex;
+  align-items: flex-start;
+  gap: 30px;
+  padding: 40px 60px;
+}
+
+/* 📌 Sticky Filter Panel */
+.filter-panel {
+  position: fixed;
+  top: 20px;
+  align-self: flex-start;
+  height: fit-content;
+  background: #ffffff;
+  padding: 25px 20px;
+  border-radius: 12px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.05);
+  width: 350px;
+  margin-top: 90px;
+  margin-left: -30px;
+  z-index: 10;
+}
+
+
+    .filter-panel h3 {
+      font-size: 22px;
+      margin-bottom: 15px;
+      color: #1a1a1a;
+    }
+
+    .filter-panel label {
+      display: block;
+      margin: 10px 0 5px;
+      font-weight: 600;
+      color: #333;
+    }
+
+    .filter-panel select,
+    .filter-panel input[type="range"] {
+      width: 100%;
+      padding: 6px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+    }
+
+    .tags {
+      margin-top: 10px;
+    }
+
+    .product-section {
+      flex: 1;
+      margin-left: 350px;
+      border-radius: 10px;
+      position: fixed;
+    }
+
+  
+
+    .search-bar input {
+      width: 100%;
+      padding: 10px 14px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 15px;
+    }
+
+    #suggestions {
+      list-style: none;
+      background: white;
+      border: 1px solid #ccc;
+      border-top: none;
+      position: absolute;
+      width: 100%;
+      z-index: 10;
+      max-height: 150px;
+      overflow-y: auto;
+      display: none;
+    }
+
+    #suggestions li {
+      padding: 10px;
+      cursor: pointer;
+    }
+
+    #suggestions li:hover {
+      background: #f1f1f1;
+    }
+
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 10px;
+    }
+    h4{
+      color: #333;
+      font-size: 10px;
+    }
+
+
+
+
+    .rating {
+      color: #f5a623;
+      font-size: 14px;
+    }
+
+
+    .view-btn {
+      background: #0a8f43;
+      border: none;
+      padding: 6px 10px;
+      border-radius: 5px;
+      color: white;
+      font-size: 13px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    .view-btn:hover {
+      background: #09773a;
+    }
+
+    .heart-icon {
+      font-size: 20px;
+      cursor: pointer;
+      color: #bbb;
+      transition: color 0.3s ease;
+    }
+
+    .heart-icon.active {
+      color: red;
+    }
+
+    #collectionPopup {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      background: #f7f8f8;
+      color: #333;
+      padding: 10px 20px;
+      border-radius: 8px;
+      font-weight: bold;
+      display: none;
+      z-index: 999;
+    }
+  .product-card {
+  height: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.product-image {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 20px;
+}
+
+.product-price {
+  font-size: 15px;
+  font-weight: bold;
+  color: #0a0a0a;
+  margin: 4px 0;
+}
+
+.rating {
+  font-size: 13px;
+  color: #f5a623;
+}
+.product-intro {
+  margin-bottom: 30px;
+  padding: 20px 25px;
+  background: #ffffff;
+  border-left: 5px solid #0a8f43;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  border-radius: 10px;
+}
+
+.product-intro h2 {
+  font-size: 24px;
+  margin: 0 0 8px;
+  color: #0a0a0a;
+  font-weight: 600;
+}
+
+.product-intro p {
+  font-size: 15px;
+  color: #555;
+  margin: 0;
+}
+.product-intro {
+  animation: fadeInDown 0.6s ease;
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.search-bar-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #fff;
+  padding: 12px 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  margin-bottom: 20px;
+  margin-top: -40px;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.search-bar-wrapper input[type="text"] {
+  flex: 1;
+  min-width: 250px;
+  padding: 10px 15px;
+  font-size: 15px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  outline: none;
+}
+
+.utility-links {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.utility-link {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 14px;
+  color: #333;
+  text-decoration: none;
+  padding: 6px 8px;
+  border-radius: 6px;
+  transition: 0.3s ease;
+}
+
+.utility-link:hover {
+  background: #f0f0f0;
+  color: #0a8f43;
+}
+
+.divider {
+  height: 20px;
+  width: 1px;
+  background: rgba(0, 0, 0, 0.1);
+}
+@media (max-width: 768px) {
+  .filter-panel{
+    display: none;
+  }
+  .product-section{
+    margin-left: -50px;
+    width: 380px;
+    
+  }
+}
+
+  </style>
+</head>
+<body>
+
+<div class="product-page-wrapper">
+  <aside class="filter-panel">
+    <h3>Filter Products</h3>
+    <label>Category:</label>
+    <select id="categoryFilter">
+      <option value="all">All</option>
+      <option value="milk">Milk</option>
+      <option value="protein">Protein</option>
+      <option value="tea-snacks">Tea & Snacks</option>
+      <option value="kitchen-essentials">Kitchen Essentials</option>
+      <option value="chocolate">Chocolate</option>
+      <option value="camel-milk">Camel Milk</option>
+      <option value="beverages">Beverages</option>
+      <option value="sweets">Sweets</option>
+    </select>
+
+    <label>Max Price: ₹<span id="priceValue">10000</span></label>
+    <input type="range" id="priceRange" min="0" max="10000" value="10000">
+
+    <div>
+      <label><input type="checkbox" value="bestseller" class="tag-filter"> Best Seller</label>
+      <label><input type="checkbox" value="organic" class="tag-filter"> Organic</label>
+    </div>
+
+    <div>
+      <label><input type="checkbox" id="collectionFilter"> My Collection</label>
+    </div>
+   <div class="product-intro" style="margin-top: 50px;">
+  <h2>Explore Our Amul Products</h2>
+  <p>Choose from a wide range of dairy delights.</p>
+</div>
+
+
+  </aside>
+
+  <main class="product-section">
+   <div class="search-bar-wrapper">
+  <input type="text" id="searchInput" placeholder="Search Amul products...">
+
+  <div class="utility-links">
+    <a href="#" class="utility-link">
+      <!-- Orders -->
+      <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+        <path d="M21 6h-3.17l-1.84-2.76A1 1 0 0015.17 3H8.83a1 1 0 00-.82.41L6.17 6H3a1 1 0 000 2h1l1.6 10.6A2 2 0 007.6 20h8.8a2 2 0 001.99-1.4L20 8h1a1 1 0 000-2zM9 17a1 1 0 110-2 1 1 0 010 2zm6 0a1 1 0 110-2 1 1 0 010 2z"/>
+      </svg>
+      Orders & Returns
+    </a>
+
+    <div class="divider"></div>
+
+    <a href="#" class="utility-link">
+      <!-- Cart -->
+      <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+        <path d="M7 4h-2l-1 2h2l1-2zm0 4H3l-1 2h2l1-2zm10 0h2l1 2h-2l-1-2zm0-4h2l1 2h-2l-1-2zM7 10h10l1.5 9H5.5l1.5-9zM10 19a1.5 1.5 0 11-.001-2.999A1.5 1.5 0 0110 19zm6 0a1.5 1.5 0 11-.001-2.999A1.5 1.5 0 0116 19z"/>
+      </svg>
+      Cart
+    </a>
+
+    <div class="divider"></div>
+
+    <a href="#" class="utility-link">
+      <!-- Offers -->
+      <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+        <path d="M20 12a8 8 0 11-16 0 8 8 0 0116 0zm-9-3h2v6h-2V9zm1 9a1 1 0 100-2 1 1 0 000 2z"/>
+      </svg>
+      Offers
+    </a>
+  </div>
+</div>
+
+    
+
+    <div id="productGrid" class="product-grid"></div>
+  </main>
+</div>
+
+<div id="collectionPopup">Added to your collection!</div>
+
+<script>
+  const products = [
+  {
+    name: "Amul Kool Protein Milkshake ",
+    category: "protein",
+    price: 320,
+    rating: 4.2,
+    image: "images/products/01-hero-image-multipack_amul-kool-protein-chocolate-180ml-500x500.avif"
+  },
+  {
+    name: "Amul Kool Protein Milkshake | Kesar, 180 mL | Pack of 8",
+    category: "protein",
+    price: 320,
+    rating: 4.0,
+    image: "images/products/01-hero-image-multipack_protein-milkshake-kesar-500x500.avif"
+  },
+  {
+    name: "Amul Kool Protein Milkshake | Arabica Coffee, 180 mL | Pack of 30",
+    category: "protein",
+    price: 1200,
+    rating: 4.4,
+    image: "images/products/01-hero-image-multipack-amul-protein-blueberry-shake-200ml-500x500.avif"
+  },
+  {
+    name: "Amul Kool Protein Milkshake | Chocolate, 180 mL | Pack of 30",
+    category: "protein",
+    price: 1200,
+    rating: 4.3,
+    image: "images/products/01-hero-image_amul-high-protein-paneer-400g-24-packs-500x500.avif"
+  },
+  {
+    name: "Amul Kool Protein Milkshake | Kesar, 180 mL | Pack of 30",
+    category: "protein",
+    price: 1200,
+    rating: 4.1,
+    image: "images/products/01-hero-image-multipack-amul-kool-protein-vanilla-180ml-500x500.avif"
+  },
+  {
+    name: "Amul Organic Dal Combo ",
+    category: "organic",
+    price: 303,
+    rating: 4.4,
+    tags: ["organic"],
+    image: "images/products/01-hero-image_daal-combo-500x500.avif"
+  },
+  {
+    name: "Amul Organic Whole Wheat Atta, 5 kg",
+    category: "organic",
+    price: 350,
+    rating: 4.3,
+    tags: ["organic"],
+    image: "images/products/01-hero-image_wheat-atta-500x500.avif"
+  },
+  {
+    name: "Amul Organic Red Rajma, 500 g",
+    category: "organic",
+    price: 135,
+    rating: 4.2,
+    tags: ["organic"],
+    image: "images/products/01-hero-image_amul-organic-rajma-red-500g-500x500.avif"
+  },
+  {
+    name: "Amul Organic Basmati Rice, 1 kg",
+    category: "organic",
+    price: 180,
+    rating: 4.5,
+    tags: ["organic"],
+    image: "images/products/01-hero-image_amul-organic-basmati-rice-1kg-500x500.avif"
+  },
+  {
+    name: "Amul Organic Toor Dal, 500 g",
+    category: "organic",
+    price: 130,
+    rating: 4.1,
+   tags: ["bestseller","organic"],
+    image: "images/products/01-hero-image_amul-organic-toor-dal-500g-500x500.avif"
+  },
+   {
+    name: "Amul PRO Malted Food, 750 g",
+    category: "kitchen-essentials",
+    price: 250,
+    rating: 4.3,
+    image: "images/products/01-hero-image_amul-pro-malt-beverage-pouch-750g-500x500.avif"
+  },
+  {
+    name: "Amul PRO Malted Food, 500 g | Pack of 2",
+    category: "kitchen-essentials",
+    price: 340,
+    rating: 4.2,
+    image: "images/products/01-hero-image_amul-pro-malt-beverage-2-pack-500x500.avif"
+  },
+  {
+    name: "Amul Chocolate Hazelnut Spread, 300 g | Pack of 2",
+    category: "kitchen-essentials",
+    price: 500,
+    rating: 4.5,
+    image: "images/products/whatsapp-image-2024-06-06-at-2-26-00-pm-500x500.avif"
+  },
+  {
+    name: "Amul Honey, 250 g | Pack of 3",
+    category: "kitchen-essentials",
+    price: 300,
+    rating: 4.4,
+    tags: ["bestseller"],
+    image: "images/products/01-hero-image_multipack-500x500.avif"
+  },
+  {
+    name: "Amul PRO Malted Food, 500 g | Pack of 3",
+    category: "kitchen-essentials",
+    price: 499,
+    rating: 4.1,
+    image: "images/products/01-hero-image_amul-pro-malt-beverage-3-pack-500x500.avif"
+  },
+  {
+  name: "Amul Instant Tea Mix (Adrak | Masala), 140 g | Pack of 2",
+    category: "tea-snacks",
+    price: 250,
+    rating: 4.4,
+    image: "images/products/01-hero-image_instant-tea-mix-combo-500x500.avif"
+  },
+  {
+    name: "Amul Adrak Chai – Instant Tea Mix, 14 g | Pack of 10 Sachets",
+    category: "tea-snacks",
+    price: 150,
+    rating: 4.2,
+    image: "images/products/01-hero-image_amul-instant-tea-mix-ginger-carton-140g-500x500.avif"
+  },
+  {
+    name: "Amul Masala Chai – Instant Tea Mix, 14 g | Pack of 10 Sachets",
+    category: "tea-snacks",
+    price: 150,
+    rating: 4.3,
+    image: "images/products/01-hero-image_amul-instant-tea-mix-masala-carton-140g-500x500.avif"
+  },
+  {
+    name: "Amul Ghee Khakhra (Jiralu Masala), 200 g | Pack of 4",
+    category: "tea-snacks",
+    price: 400,
+    rating: 4.6,
+    image: "images/products/01-hero-image_amul-jiralu-khakhra-200g_-4-packs-500x500.avif"
+  },
+  {
+    name: "Amul Khakhra Combo (Ghee | Butter), 200 g | Pack of 4",
+    category: "tea-snacks",
+    price: 330,
+    rating: 4.5,
+    image: "images/products/01-hero-image_khakhra-combo-500x500.avif"
+  },
+  {
+    name: "Amul Almondo | Chocolate Coated Almonds, 200 g",
+    category: "chocolate",
+    price: 230,
+    rating: 4.5,
+    tags: ["bestseller","organic"],
+    image: "images/products/01-hero-image_amul-almondo-tub-200g-500x500.avif"
+  },
+  {
+    name: "Amul India Origin Dark Chocolate, 125 g | Pack of 2",
+    category: "chocolate",
+    price: 400,
+    rating: 4.6,
+    image: "images/products/01-hero-image_amul-sodc-india-carton-125g-500x500.avif"
+  },
+  {
+    name: "Amul Velvett Milk Chocolate, 150 g | Pack of 2",
+    category: "chocolate",
+    price: 440,
+    rating: 4.3,
+    image: "images/products/01-hero-image_amul-velvet-milk-chocolate-150g-hero-500x500.avif"
+  },
+  {
+    name: "Amul Fruit n Nut 55% Dark Chocolate, 150 g | I Love You | Pack of 2",
+    category: "chocolate",
+    price: 400,
+    rating: 4.4,
+    image: "images/products/01-hero-image_amul-i-love-you-fandn-carton-150g-hero-500x500.avif"
+  },
+  {
+    name: "Amul 55% Dark Chocolate, 150 g | Pack of 2",
+    category: "chocolate",
+    price: 400,
+    rating: 4.2,
+    image: "images/products/01-hero-image_amul-chocolate-dark-chocolate-55percent-pack-of-2-500x500.avif"
+  },
+   {
+    name: "Amul Kool Kesar Badam Flavoured Milk, 500 mL | Pack of 4",
+    category: "beverages",
+    price: 280,
+    rating: 4.5,
+    tags: ["bestseller"],
+    image: "images/products/01-hero-image_amul-kool-kesar-badam-500ml-500x500.avif"
+  },
+  {
+    name: "Amul Mango Lassi, 1 L",
+    category: "beverages",
+    price: 180,
+    rating: 4.3,
+    image: "images/products/01-hero-image_amul-mango-lassi-tetrapack-1l-500x500.avif"
+  },
+  {
+    name: "Amul Kool Thandai, 180 mL | Pack of 30",
+    category: "beverages",
+    price: 750,
+    rating: 4.4,
+    image: "images/products/01-hero-image_amul-kool-thandai-pet-bottle_180ml-500x500 (1).avif"
+  },
+  {
+    name: "Amul Camel Milk Powder, 25 g | Pack of 10 Sachets",
+    category: "camel-milk",
+    price: 350,
+    rating: 4.5,
+    image: "images/products/01-hero-image_amul-camel-milk-powder-250g-500x500.avif"
+  },
+  {
+    name: "Amul Camel Milk Bottle, 200 mL | Pack of 30",
+    category: "camel-milk",
+    price: 750,
+   tags: ["bestseller","organic"],
+    rating: 4.4,
+    image: "images/products/01-hero-image_amul-camel-milk-pet-bottle_200ml-multipack-30-500x500.avif"
+  },
+  {
+    name: "Amul Flavoured Camel Milk, 180 mL | Pack of 30",
+    category: "camel-milk",
+    price: 900,
+    rating: 4.3,
+    image: "images/products/01-hero-image_multipack-30-500x500 (1).avif"
+  },
+  {
+    name: "Amul Camel Milk Bottle, 200 mL | Pack of 8",
+    category: "camel-milk",
+    price: 200,
+    rating: 4.2,
+    image: "images/products/01-hero-image_amul-camel-milk-pet-bottle_200ml-multipack-8-500x500.avif"
+  },
+  {
+    name: "Amul Flavoured Camel Milk, 180 mL | Pack of 8",
+    category: "camel-milk",
+    price: 240,
+    rating: 4.4,
+    image: "images/products/01-hero-image_multipack-amul-kool-camel-milk-kesar-180ml-500x500.avif"
+  },
+  {
+    name: "Amul Kesar Peda, 200 g | Pack of 2",
+    category: "sweets",
+    price: 250,
+    rating: 4.5,
+    image: "images/products/01-hero-image_kesar-peda-200g-500x500.avif"
+  },
+  {
+    name: "Amul 'Kesar' Basundi, 250 mL | Pack of 3",
+    category: "sweets",
+    price: 150,
+    rating: 4.3,
+    image: "images/products/01-hero-image_amul-basundi-250ml-500x500.avif"
+  },
+  {
+    name: "Amul 'Kesar' Basundi, 1 L",
+    category: "sweets",
+    price: 195,
+    rating: 4.4,
+    image: "images/products/01-hero-image_amul-basundi-1l-500x500.avif"
+  },
+  {
+    name: "Amul Sweets Combo Pack, 2 kg | Gulab Jamun, 1 kg | Rosogolla, 1 kg",
+    category: "sweets",
+    price: 460,
+    rating: 4.6,
+    image: "images/products/01-hero-image_amul-gulabjamun-and-rosgulla-combo-pack-500x500.avif"
+  },
+  {
+    name: "Amul Gulab Jamun, 1 kg | Pack of 2",
+    category: "sweets",
+    price: 500,
+    rating: 4.5,
+    image: "images/products/01-hero-image_multipack_amul-gulabjamun-1kg-500x500.avif"
+  },
+  {
+    name: "Amul Moti Long-life Milk, 450 mL | Pack of 24",
+    category: "milk",
+    price: 792,
+    rating: 4.4,
+    image: "images/products/01-hero-image_amul-moti-pouch_450ml-500x500.avif"
+  },
+  {
+    name: "Amul Lactose Free Milk, 250 mL | Pack of 32",
+    category: "milk",
+    price: 800,
+    rating: 4.3,
+    image: "images/products/01-hero-image_-multipack-32_amul-lactosefree-milk-tetrapack-250ml-500x500 (1).avif"
+  },
+  {
+    name: "Amul Calci+ Milk, 1 L | Pack of 12",
+    category: "milk",
+    price: 1140,
+    tags: ["bestseller","organic"],
+    rating: 4.5,
+    image: "images/products/01-hero-image_calci-plus-milk-1-l_12-packs-500x500.avif"
+  },
+  {
+    name: "Amul Calci+ Milk, 1 L | Pack of 4",
+    category: "milk",
+    price: 380,
+    rating: 4.4,
+    image: "images/products/01-hero-image_calci-plus-milk-1-l_4-packs-500x500.avif"
+  },
+  {
+    name: "Amul Calci+ Milk, 250 mL | Pack of 8",
+    category: "milk",
+    price: 200,
+    rating: 4.2,
+    image: "images/products/01-hero-image_calci-plus-milk-250ml_8-packs-500x500.avif"
+  }
+];
+
+  let myCollection = [];
+
+  function filterProducts() {
+  const selectedCategory = document.getElementById("categoryFilter").value;
+  const maxPrice = parseInt(document.getElementById("priceRange").value);
+  const searchTerm = document.getElementById("searchInput").value.toLowerCase();
+  const selectedTags = Array.from(document.querySelectorAll(".tag-filter:checked")).map(cb => cb.value);
+  const showCollection = document.getElementById("collectionFilter").checked;
+
+  const filtered = products.filter(p => {
+    return (selectedCategory === "all" || p.category === selectedCategory) &&
+           p.price <= maxPrice &&
+           p.name.toLowerCase().includes(searchTerm) &&
+           (selectedTags.length === 0 || selectedTags.every(tag => (p.tags || []).includes(tag))) &&
+           (!showCollection || myCollection.includes(p.name));
+  });
+
+  showProducts(filtered);
+  showSuggestions(filtered);
+}
+
+
+  function showProducts(items) {
+    const productGrid = document.getElementById("productGrid");
+    productGrid.innerHTML = "";
+
+    items.forEach(p => {
+      const isInCollection = myCollection.includes(p.name);
+      const heartIcon = isInCollection ? "❤️" : "🤍";
+      const heartClass = isInCollection ? "heart-icon active" : "heart-icon";
+
+   const card = document.createElement("div");
+card.className = "product-card";
+card.innerHTML = `
+  <div class="product-image">
+    <img src="${p.image}" alt="${p.name}" />
+  </div>
+  <h4>${p.name}</h4>
+  <div class="product-price">₹${p.price}</div>
+  <div class="rating">⭐ ${p.rating}</div>
+  <div class="product-actions">
+    <button class="view-btn">View Product</button>
+    <span class="${heartClass}" data-name="${p.name}">${heartIcon}</span>
+  </div>
+`;
+
+
+      productGrid.appendChild(card);
+    });
+
+    document.querySelectorAll(".heart-icon").forEach(heart => {
+      heart.onclick = () => {
+        const name = heart.getAttribute("data-name");
+        if (!myCollection.includes(name)) {
+          myCollection.push(name);
+          heart.classList.add("active");
+          heart.innerHTML = "❤️";
+          showPopup();
+        }
+      };
+    });
+  }
+
+  function showSuggestions(items) {
+    const suggestions = document.getElementById("suggestions");
+    suggestions.innerHTML = "";
+
+    const terms = items.map(p => p.name);
+    if (document.getElementById("searchInput").value.length > 0) {
+      suggestions.style.display = "block";
+      terms.slice(0, 5).forEach(name => {
+        const li = document.createElement("li");
+        li.textContent = name;
+        li.onclick = () => {
+          document.getElementById("searchInput").value = name;
+          filterProducts();
+          suggestions.innerHTML = "";
+        };
+        suggestions.appendChild(li);
+      });
+    } else {
+      suggestions.style.display = "none";
+    }
+  }
+
+  function showPopup() {
+    const popup = document.getElementById("collectionPopup");
+    popup.style.display = "block";
+    setTimeout(() => popup.style.display = "none", 2000);
+  }
+
+  // Event Listeners
+  document.getElementById("categoryFilter").addEventListener("change", filterProducts);
+  document.getElementById("priceRange").addEventListener("input", () => {
+    document.getElementById("priceValue").textContent = document.getElementById("priceRange").value;
+    filterProducts();
+  });
+  document.getElementById("searchInput").addEventListener("input", filterProducts);
+  document.querySelectorAll(".tag-filter").forEach(tag => tag.addEventListener("change", filterProducts));
+  document.getElementById("collectionFilter").addEventListener("change", filterProducts);
+
+  // Initial render
+  filterProducts();
+</script>
+
+</body>
+</html>
+
+
+
