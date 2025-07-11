@@ -20,25 +20,45 @@
 </head>
 <body>
     
-  <nav>
-    <!-- Logo (Left) -->
+ <nav class="navbar">
+  <!-- Left Side: Logo + Menu -->
+  <div class="left-section">
     <div class="logo">
-      <img src="images/logos/asset-1-480x480.avif" alt="Logo">
+      <img src="images/logos/asset-1-480x480.avif" alt="Logo" />
     </div>
+    <div class="menu-button" onclick="toggleMenu()"> ☰</div>
+  </div>
 
-    <!-- Center Navigation -->
-    <div class="nav-links">
-      <a href="index.htm">Home</a>
-      <a href="about_us.htm">About Us</a>
-      <a href="service.html">Services</a>
-      <a href="contact.htm">Contact</a>
-    </div>
-
-    <!-- Right Button -->
+  <!-- Right Side: Navigation Links -->
+  <div class="nav-links" id="navLinks">
+    <a href="index.htm">Home</a>
+    <a href="about_us.htm">About Us</a>
+    <a href="service.html">Services</a>
+    <a href="contact.htm">Contact</a>
     <div class="nav-button">
-      <button>Emergency</button>
+      <button class="emergency-btn">Emergency</button>
     </div>
-  </nav>
+  </div>
+</nav>
+
+<script>
+  const menuButton = document.querySelector('.menu-button');
+  const navLinks = document.getElementById('navLinks');
+
+  function toggleMenu() {
+    navLinks.classList.toggle('show');
+  }
+
+  // Close menu if clicked outside
+  document.addEventListener('click', function (event) {
+    const isClickInsideMenu = navLinks.contains(event.target);
+    const isClickOnButton = menuButton.contains(event.target);
+
+    if (!isClickInsideMenu && !isClickOnButton) {
+      navLinks.classList.remove('show');
+    }
+  });
+</script>
 
   <section class="about-section" id="about-section">
   <h2 class="section-heading" style="margin-top: 40px; margin-bottom: -20px; font-size: 70px ;">What We Do !</h2>

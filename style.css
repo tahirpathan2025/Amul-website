@@ -1848,3 +1848,37 @@ nav.desktop-nav {
     height: 100px;
     width: 320px;
 }
+.left-section {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+  .menu-button {
+    display: none;
+  }
+
+/* Responsive */
+@media (max-width: 768px) {
+  .menu-button {
+    display: block;
+    margin-left: 48%;
+    font-size: 25px;
+  }
+
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 70px;
+    right: 20px;
+    background-color: #fff;
+    width: 220px;
+    padding: 20px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+    border-radius: 8px;
+  }
+
+  .nav-links.show {
+    display: flex;
+  }
+}
