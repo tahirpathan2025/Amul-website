@@ -1729,6 +1729,9 @@ margin-top: -350px;
 .pricing-btn1:hover {
   background-color: #faeb7b;
 }
+.head-1{
+  color: #333; height:80px; margin-top: 20px; font-size: 50px;
+}
 
 @media (max-width: 768px) {
   .two-column-section {
@@ -1837,6 +1840,226 @@ nav.desktop-nav {
   }
 }
 
+
+/* Responsive layout for mobile */
+@media (max-width: 768px) {
+  .two-column-section {
+    flex-direction: column;
+    padding: 20px;
+    margin-left: 325px;
+    margin-bottom: 0px;
+
+    
+  }
+  
+  .square-box-about-page {
+    height: 250px;
+    width: 350px;
+    margin-right: -70px;
+  }
+
+  .content-box-about-page {
+    font-size: 14px;
+    line-height: 1.5;
+    max-height: 400px; /* Limit height */
+    overflow: hidden;
+    margin-left: -10px;
+    width: 350px;
+    padding: 0px;
+  }
+ 
+  
+  strong.hide{
+    display: none;
+  }
+  .left-image{
+    width: 450px;
+  }
+
+
+}
+.wwd{
+ margin-top: 40px; margin-bottom: -20px; font-size: 70px ;
+}
+
+
+
+/* -------- Responsive: Mobile View -------- */
+@media (max-width: 768px) {
+  .sweet-container {
+    flex-direction: column;
+  }
+
+.sweet-section{
+  width: 100%;
+}
+
+  .left-image {
+    order: 1;
+  }
+
+  .right-side {
+    order: 2;
+    flex-direction: column;
+  }
+
+  .arrow-img {
+    display: none !important;
+  }
+
+  .top-image, .bottom-image {
+    width: 100%;
+  }
+
+  .top-image p,
+  .bottom-image p {
+    position: static;
+    margin-top: 8px;
+    background: none;
+    padding: 0;
+    color: #000;
+  }
+
+  .amul-logo {
+    flex-direction: row;
+    margin-top: 10px;
+  }
+  img.Top{
+    display: none;
+    padding: 0%;
+  }
+  img.Bottom{
+    display: none;
+  }
+  .amul-logo{
+    display: none;
+  }
+  div.right-side{
+    display: none;
+  }
+  .section-heading {
+    font-size: 22px;
+  }
+
+  .team-container{
+    margin-left: 0px;
+    width: 100%;
+  }
+  .team-card {
+    padding: 10px;
+    width: 100px;
+  }
+
+  .team-card img {
+    width: 100px;
+  }
+
+  .team-card h3 {
+    font-size: 16px;
+  }
+
+  .team-card p {
+    font-size: 10px;
+  }
+
+  .social-icons a {
+    font-size: 16px;
+    margin: 0 6px;
+  }
+}
+
+@media (max-width: 480px) {
+  .section-heading {
+    font-size: 20px;
+  }
+
+  .team-card img {
+    max-width: 110px;
+    height: 200px;
+  }
+
+  .team-card{
+    width: 160px;
+  }
+
+  .team-card h3 {
+    font-size: 14px;
+  }
+
+  .team-card p {
+    font-size: 12px;
+  }
+
+  .social-icons a {
+    font-size: 14px;
+    margin: 0 5px;
+  }
+}
+@media (max-width: 768px) {
+  .boost-section {
+    flex-direction: column;
+    padding: 30px 20px;
+  }
+
+  .head-1 {
+    font-size: 10px;
+    text-align: center;
+    margin-top: 100px;
+    height: auto;
+    color: #000;
+    width: 170px;
+  }
+
+  .comment-box {
+    
+    font-size: 10px;
+    height: auto;
+    letter-spacing: 1px;
+    padding: 20px;
+    width: 170px;
+  
+   
+  }
+  .left-section{
+    margin-top: -120px;
+  }
+  .profile {
+   display: none;
+  }
+
+  .profile img {
+    width: 20px;
+    height: 20px;
+  }
+
+  .left-1,
+  .right-1 {
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+  }
+
+  .Image {
+    width: 100%;
+    max-width: 140px;
+    height: 150px;
+    border-radius: 10px;
+  }
+
+  .info-box {
+    width: 100%;
+    max-width: 130px;
+    padding: 25px;
+    font-size: 14px;
+    margin: 0 auto;
+  }
+
+  .info-box .logo {
+    font-size: 24px;
+  }
+}
+
+
 .pink{
    border: 2px solid #FDB7EA;
    height: 100px;
@@ -1881,4 +2104,20 @@ nav.desktop-nav {
   .nav-links.show {
     display: flex;
   }
+  .sweet-section h2{
+    font-size: 15px;
+  }
+  .what-we-do p{
+    height: 250px;
+  }
+   .content-box-about-page{
+    margin-left: -720px;
+   }
+     .wwd{
+    margin-top: 10px; margin-bottom: -10px; font-size: 50px ;
+    
+  }
+}
+.comment-box{
+  letter-spacing: 2px; height: 300px; margin-top: 100px;
 }
