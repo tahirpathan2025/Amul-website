@@ -1450,10 +1450,10 @@ margin-top: -350px;
 }
 
 .bg1 { background-image: url('images/banners/tasty-cookies-ice-cream.jpg'); width: 40%; }
-.bg2 { background-image: url('images/banners/delicious-chocolate-spread-close-up.jpg'); width: 60%; }
+.bg2 { background-image: url('images/banners/view-allergens-commonly-found-dairy.jpg'); width: 60%; }
 
 .bg3 { background-image: url('images/banners/view-allergens-commonly-found-dairy.jpg'); }
-.bg4 { background-image: url('images/banners/chocolate-nuts-black.jpg'); }
+.bg4 { background-image: url('images/banners/tasty-cookies-ice-cream.jpg'); }
 
 .wide { width: 60%; }
 .narrow { width: 40%; }
@@ -2117,6 +2117,9 @@ nav.desktop-nav {
     margin-top: 10px; margin-bottom: -10px; font-size: 50px ;
     
   }
+ .hide{
+  display: n;
+ }
 }
 .comment-box{
   letter-spacing: 2px; height: 300px; margin-top: 100px;
